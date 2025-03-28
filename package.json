@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "10.4.21",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "autoprefixer": "^9.8.8",
     "eslint": "9.23.0",
     "eslint-config-next": "15.2.3",
     "next": "15.2.3",
-    "postcss": "8.5.3",
+    "nextjs-progressbar": "^0.0.16",
+    "postcss": "^7.0.39",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "tailwindcss": "4.0.15"
+    "react-icons": "^5.5.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.15"
   }
 }
