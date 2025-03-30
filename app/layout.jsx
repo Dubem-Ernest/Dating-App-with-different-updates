@@ -1,9 +1,11 @@
 "use client"; // Enables state & interactivity
 
 import { useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { usePathname } from "next/navigation";
 
 import Nav from "./components/Nav";
 
@@ -15,11 +17,36 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+  const sideNavRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  function handleClickOutside(event) {
+    if (sideNavRef.current && !sideNavRef.current.contains(event.target)) {
+      // Clicked outside the side navigation bar, close it
+      // Implement your close side navigation bar logic here
+      setSidebarOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    // Add event listener to the document object
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   function handleSidebar() {
     setSidebarOpen(!sidebarOpen);
   }
+
+  function closeMenu() {
+    setSidebarOpen(false);
+  }
+
   return (
     <html lang="en">
       <head>
@@ -39,19 +66,21 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout"
+        />
       </head>
       <body className={inter.className}>
         <Nav />
 
-        <div
-          onClick={handleSidebar}
-          className="grid grid-cols-8 md:mt-12  gap-2 h-screen"
-        >
+        <div className="grid grid-cols-8 md:mt-12  gap-2 h-screen ">
           {/* Fixed Sidebar Button */}
 
           <span
             className="material-icons col-span-1 left-5 cursor-pointer pl-6"
             style={{ fontSize: "2rem" }}
+            onClick={handleSidebar}
           >
             menu
           </span>
@@ -61,8 +90,11 @@ export default function RootLayout({ children }) {
               sidebarOpen ? "block" : "hidden"
             }`}
           >
-            <div className="transform translate-y-24 custom-width rounded-lg h-40 bg-white flex flex-col custom-height ml-8">
-              <div className="flex flex-col p-3 justify-center items-center space-y-8">
+            <div className="transform translate-y-16 custom-width rounded-lg h-40 bg-white flex flex-col custom-height ml-8">
+              <div
+                className="flex flex-col p-3 justify-center items-center space-y-8"
+                ref={sideNavRef}
+              >
                 <div className="pt-10 space-y-2">
                   <img
                     src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
@@ -72,39 +104,111 @@ export default function RootLayout({ children }) {
                   <h1 className="text-lg font-bold">Dubem Ernest</h1>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <Link href="profile">
+                  {" "}
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3 flex items-center gap-14 ${
+                      pathname === "/" ? "active bg-red-500 rounded-lg  " : ""
+                    }`}
+                    href="/"
+                  >
                     {" "}
                     <span className="material-icons-round">grid_view</span>
-                    Dashboard
+                    <p className="text-sm">Home</p> 
                   </Link>
-                  <Link href="profile">
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
+                      pathname === "/profile"
+                        ? "active bg-red-500 rounded-lg "
+                        : ""
+                    }`}
+                    href="profile"
+                  >
                     <span className="material-icons-outlined">
                       manage_accounts
                     </span>
-                    My Profile
+                    <p className="text-sm">My Profile</p> 
                   </Link>
-                  <Link href="profile">
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
+                      pathname === "/favorite"
+                        ? "active bg-red-500 rounded-lg "
+                        : ""
+                    }`}
+                    href="favorite"
+                  >
                     {" "}
                     <span className="material-icons-outlined">favorite</span>
-                    Favourite
+                    <p className="text-sm">Favourite</p> 
                   </Link>
-                  <Link href="profile">
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
+                      pathname === "/My_Mutuals"
+                        ? "active bg-red-500 rounded-lg "
+                        : ""
+                    }`}
+                    href="My_Mutuals"
+                  >
                     {" "}
                     <span className="material-icons-two-tone">diversity_1</span>
-                    My Mutuals
+                    <p className="text-sm">My Mutuals</p> 
                   </Link>
-                  <Link href="profile" className="space-x-4">
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
+                      pathname === "/subscriptions"
+                        ? "active bg-red-500 rounded-lg "
+                        : ""
+                    }`}
+                    href="My_Subscribed"
+                  >
                     <i className="material-icons">
                       <h2>subscriptions</h2>
                     </i>{" "}
-                    My Suscribed
+                    <p className="text-sm">Subscribed</p> 
                   </Link>
-                  <Link href="profile">Interested in me</Link>
-                  <Link href="profile">
-                    <span class="material-icons-outlined">manage_accounts</span>
-                    <span>Settings</span>
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3  flex items-center gap-14 ${
+                      pathname === "/favorite"
+                        ? "active bg-red-500 rounded-lg  "
+                        : ""
+                    }`}
+                    href="Interested_in_me"
+                  >
+                    Interested in me
+                  </Link>{" "}
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-48 h-12 p-3  flex items-center gap-14 ${
+                      pathname === "/favorite"
+                        ? "active bg-red-500 rounded-lg  "
+                        : ""
+                    }`}
+                    href="Settings"
+                  >
+                    <span className="material-icons-outlined">
+                      manage_accounts
+                    </span>
+                    <p className="text-sm">Settings</p> 
+                  </Link>{" "}
+                  <Link
+                    onClick={closeMenu}
+                    className={`w-40 h-12 p-3  flex items-center gap-14  ${
+                      pathname === "/favorite"
+                        ? "active bg-red-500 rounded-lg  "
+                        : ""
+                    }`}
+                    href="logout"
+                  >
+                    <span className="material-symbols-outlined text-3xl">
+                      logout
+                    </span>
+                    <span>LogOut</span>{" "}
                   </Link>
-                  <Link href="profile"><span>LogOut</span> </Link>
                 </div>
               </div>
             </div>
