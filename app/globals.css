@@ -5,6 +5,7 @@
 
 body{
     background: #f5f3f2;
+    
 }
 
 @layer utilities {
@@ -23,6 +24,35 @@ body{
     height: 44rem;
   }
 
-  .custom-width {
+.h-custom {
+  height: 19rem;
+}
+
+.w-custom {
+  width: 18rem;
+}
+
+.custom-width {
     width: 22rem;
-  }
+}
+
+.card-width {
+    height: 5rem;
+}
+.card-height {
+    width: 5rem;
+}
+
+.card-img-height{
+  height: 8rem;
+}
+
+.translate-custom{
+  translate: 6rem -3rem;
+}
+
+.card-color{
+  background-color: #f2f2f0;
+}
+
+
