@@ -1,13 +1,33 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons"; // Solid style
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"; // Verified checkmark
 // import UserCard from "./components/UserCard";
-import user from "../app/User/index";
+import user from "./User";
 
 export default function Home() {
   const [value, setValue] = useState("");
+  const [users, setUsers] = useState(user ?? []);
+  // const [favoriteUser, setFavoriteUser] = useState([]);
+
+ 
+
+ // This state is derived from users automatically now
+ const favoriteUser = users.filter(user => user.favorite); // Filter out favorites from users
+console.log(favoriteUser);
+ const addFavorite = (i) => {
+   setUsers((prevUsers) => {
+     if (!prevUsers || !Array.isArray(prevUsers)) return [];
+     // Toggle the favorite status
+     const updatedUsers = prevUsers.map((user, index) =>
+       index === i ? { ...user, favorite: !user.favorite } : user
+     );
+     return updatedUsers; // Update users state correctly
+   });
+ };
+
+
   return (
     <section className="flex flex-col h-screen">
       <div className="flex w-full gap-16 max-w-80 items-center header">
@@ -55,64 +75,86 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-green-800 h-full grid grid-cols-4 gap-2 overflow-auto no-scrollbar">
-        {user.map((item, i) => (
-          <div key={i} className="h-custom w-custom card-color flex flex-col items-center rounded-lg mt-2 ml-2">
-            <div className="card-img-height w-full relative">
-              <img
-                className="h-full w-full object-cover rounded-t-lg "
-                src={item.backgroundImage}
-                alt=""
-              />
-
-              <div className="absolute translate-custom border-4 border- card-width card-height rounded-full bg-black">
+      <div className="h-full inline-grid grid-cols-4 gap-2 overflow-auto no-scrollbar">
+        {Array.isArray(users) && users.length > 0 ? (
+          users.map((user, i) => (
+            <div
+              key={i}
+              className="shadow-lg block  h-custom w-custom card-color flex flex-col items-center rounded-lg mt-2 ml-2"
+            >
+              <div className="card-img-height w-full relative">
                 <img
-                  src={item.roundedImage}
+                  className="h-full w-full object-cover rounded-t-lg "
+                  src={user.backgroundImage}
                   alt=""
-                  className="w-full h-full rounded-full object-cover"
                 />
-              </div>
-            </div>
-            <div className="flex flex-col px-3">
-              <div className="flex justify-between h-4">
-                {" "}
-                <div className="flex flex-col ">
-                  <h1 className="text-xs font-bold py-1">
-                    {item.name},{item.age}
-                  </h1>
-                  <h1 className="text-xs font-bold">{item.Nationality}</h1>
-                </div>
-                <div className="flex flex-col ">
-                  <h2 className="text-xs font-bold py-1">
-                    {item.percentage}, match
-                  </h2>
-                  {item.verified && (
-                    <p className="text-xs font-bold">
-                      <FontAwesomeIcon
-                        icon={faCircleCheck}
-                        className={`text-sm px-1 ${item.favorite ? "text-red-500" : "text-blue-500 "}`}
-                      />
-                      Verified address
-                    </p>
-                  )}
-                </div>
-              </div>
 
-              <p className="text-xs py-4">
-              {item.description}
-              </p>
-              <div className="flex justify-center items-center w-full justify-between">
-                <button className={`w-24 h-8 p-2  text-xs text-white rounded-ful ${item.view_info ? 'bg-red-500': "bg-blue-500"}`}>
-                {item.view_info ? "More info" : "View info"}
-                </button>{" "}
-                <FontAwesomeIcon
+                <div className="absolute translate-custom border-4 border- card-width card-height rounded-full bg-black">
+                  <img
+                    src={user.roundedImage}
+                    alt=""
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col px-3">
+                <div className="flex justify-between block">
+                  {" "}
+                  <div className="flex flex-col py-2">
+                    <h1 className="text-xs font-bold py-1">
+                      {user.name},{user.age}
+                    </h1>
+                    <h1 className="text-xs font-bold">{user.Nationality}</h1>
+                  </div>
+                  <div className="flex flex-col block items-center py-2 ">
+                    <h2 className="text-xs font-bold py-1">
+                      {user.percentage}, match
+                    </h2>
+                    {user.verified && (
+                      <div className="flex space-x-1 items-center">
+                        {" "}
+                        <FontAwesomeIcon
+                          icon={faCircleCheck}
+                          className="text-sm px-1 text-blue-500 "
+                        />
+                        <p className="text-xs font-bold py-1 ">
+                          Verified address
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-xs pt-5 pb-3">{user.description}</p>
+                <div className="flex justify-center items-center w-full justify-between py-3">
+                  <button
+                    className={`w-24 h-8 p-2  text-xs text-white rounded-full ${
+                      user.view_info ? "bg-red-500" : "bg-blue-500"
+                    }`}
+                  >
+                    {user.view_info ? "More info" : "View info"}
+                  </button>{" "}
+                  {/* <FontAwesomeIcon
                   icon={faHeart}
-                  className="text-red-500 text-xl px-1"
-                />
+                  className={` text-xl px-1 ${
+                    item.favorite ? "text-red-500" : "white"
+                  }`}
+                /> */}
+                  <FontAwesomeIcon
+                    onClick={() => addFavorite(i)}
+                    icon={faHeart}
+                    size="xl"
+                    className={`cursor-pointer ${
+                      user.favorite ? "text-red-500" : "text-green-500"
+                    }`}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Loading users...</p> // Fallback when users is empty
+        )}
       </div>
     </section>
   );

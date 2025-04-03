@@ -24,13 +24,15 @@ body{
     height: 44rem;
   }
 
-.h-custom {
-  height: 19rem;
+/* .h-custom {
+  height: auto;
+  min-height: 19rem;
 }
 
 .w-custom {
-  width: 18rem;
-}
+  width: auto;
+  min-width: 18rem;
+} */
 
 .custom-width {
     width: 22rem;

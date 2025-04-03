@@ -1,10 +1,10 @@
 "use client"
 import React from "react";
-import NextNProgress from "nextjs-progressbar";
+
 
 const Profile = () => {
   return (
-   <div></div>
+   <div className="flex flex-col bg-red-500 h-screen">James Blunt</div>
   );
 };
 
