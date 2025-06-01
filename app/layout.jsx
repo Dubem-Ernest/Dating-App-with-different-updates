@@ -1,13 +1,11 @@
 "use client"; // Enables state & interactivity
 
-import { useState } from "react";
-import React, { useEffect, useRef } from "react";
-import Link from "next/link";
+import React from "react";
+import MainLayout from "./MainLayout";
+import Provider from "../provider";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { usePathname } from "next/navigation";
-
-import Nav from "./components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,36 +19,6 @@ config.autoAddCss = false; // Prevent duplicate styles
 // };
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const sideNavRef = useRef(null);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  function handleClickOutside(event) {
-    if (sideNavRef.current && !sideNavRef.current.contains(event.target)) {
-      // Clicked outside the side navigation bar, close it
-      // Implement your close side navigation bar logic here
-      setSidebarOpen(false);
-    }
-  }
-
-  useEffect(() => {
-    // Add event listener to the document object
-    document.addEventListener("mousedown", handleClickOutside);
-
-    // Remove event listener when the component unmounts
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  function handleSidebar() {
-    setSidebarOpen(!sidebarOpen);
-  }
-
-  function closeMenu() {
-    setSidebarOpen(false);
-  }
-
   return (
     <html lang="en">
       <head>
@@ -75,154 +43,10 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout"
         />
       </head>
-      <body className="no-scrollbar">
-        <Nav />
-
-        <div className="grid grid-cols-8 gap-2 h-screen ">
-          {/* Fixed Sidebar Button */}
-
-          <div className="col-span-1 left-5 pl-6 items-center">
-            <span
-              className="material-icons  cursor-pointer mt-16"
-              style={{ fontSize: "2rem" }}
-              onClick={handleSidebar}
-            >
-              menu
-            </span>
-          </div>
-
-          <div
-            className={`fixed w-full h-full top-0 left-0 bg-black bg-opacity-50 z-20 cursor-pointer flex items-center ${
-              sidebarOpen ? "block" : "hidden"
-            }`}
-          >
-            <div className="transform translate-y-16 custom-width rounded-lg h-40 bg-white flex flex-col custom-height ml-8">
-              <div
-                className="flex flex-col p-3 justify-center items-center space-y-8"
-                ref={sideNavRef}
-              >
-                <div className="pt-10 space-y-2">
-                  <img
-                    src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-                    alt=""
-                    className="rounded-full h-24 object-cover w-24 "
-                  />
-                  <h1 className="text-lg font-bold">Dubem Ernest</h1>
-                </div>
-                <div className="flex flex-col gap-2">
-                  {" "}
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3 flex items-center gap-14 ${
-                      pathname === "/" ? "active bg-red-500 rounded-lg  " : ""
-                    }`}
-                    href="/"
-                  >
-                    {" "}
-                    <span className="material-icons-round">grid_view</span>
-                    <p className="text-sm">Home</p>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
-                      pathname === "/profile"
-                        ? "active bg-red-500 rounded-lg "
-                        : ""
-                    }`}
-                    href="profile"
-                  >
-                    <span className="material-icons-outlined">
-                      manage_accounts
-                    </span>
-                    <p className="text-sm">My Profile</p>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
-                      pathname === "/favorite"
-                        ? "active bg-red-500 rounded-lg "
-                        : ""
-                    }`}
-                    href="favorite"
-                  >
-                    {" "}
-                    <span className="material-icons-outlined">favorite</span>
-                    <p className="text-sm">Favourite</p>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
-                      pathname === "/My_Mutuals"
-                        ? "active bg-red-500 rounded-lg "
-                        : ""
-                    }`}
-                    href="My_Mutuals"
-                  >
-                    {" "}
-                    <span className="material-icons-two-tone">diversity_1</span>
-                    <p className="text-sm">My Mutuals</p>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3   flex items-center gap-14 ${
-                      pathname === "/subscriptions"
-                        ? "active bg-red-500 rounded-lg "
-                        : ""
-                    }`}
-                    href="My_Subscribed"
-                  >
-                    <i className="material-icons">
-                      <h2>subscriptions</h2>
-                    </i>{" "}
-                    <p className="text-sm">Subscribed</p>
-                  </Link>
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3  flex items-center gap-14 ${
-                      pathname === "/favorite"
-                        ? "active bg-red-500 rounded-lg  "
-                        : ""
-                    }`}
-                    href="Interested_in_me"
-                  >
-                    Interested in me
-                  </Link>{" "}
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-48 h-12 p-3  flex items-center gap-14 ${
-                      pathname === "/favorite"
-                        ? "active bg-red-500 rounded-lg  "
-                        : ""
-                    }`}
-                    href="Settings"
-                  >
-                    <span className="material-icons-outlined">
-                      manage_accounts
-                    </span>
-                    <p className="text-sm">Settings</p>
-                  </Link>{" "}
-                  <Link
-                    onClick={closeMenu}
-                    className={`w-40 h-12 p-3  flex items-center gap-14  ${
-                      pathname === "/favorite"
-                        ? "active bg-red-500 rounded-lg  "
-                        : ""
-                    }`}
-                    href="logout"
-                  >
-                    <span className="material-symbols-outlined text-3xl">
-                      logout
-                    </span>
-                    <span>LogOut</span>{" "}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Dynamic Page Content */}
-          <main className=" col-span-7 bg-green pr-20 pl-8">{children}</main>
-        </div>
+      <body className="no-scrollbar relative">
+        <Provider>
+          <MainLayout>{children}</MainLayout>
+        </Provider>
       </body>
     </html>
   );

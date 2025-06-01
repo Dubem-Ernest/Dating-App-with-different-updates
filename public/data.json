@@ -1,0 +1,461 @@
+  [
+    {
+      "id": "1",
+      "name": "Rachael",
+      "backgroundImage":"https://randomuser.me/api/portraits/women/1.jpg",
+      "roundedImage":
+      "https://randomuser.me/api/portraits/women/1.jpg",
+      "age": "31",
+      "Nationality": "Finland",
+      "percentage": "87%",
+      "verified": true,
+      "description":
+        "i am warm, genuine, and romantic person who is looking for a meaningful relationship. I communicate with kindness and honesty, and i enjoy deep, heartfelt conversations as well as playful, flirty banter.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Dating"
+    },
+    {
+      "id": "2",
+      "name": "Stephen",
+      "backgroundImage":
+      "https://randomuser.me/api/portraits/men/2.jpg",
+      "roundedImage":
+      "https://randomuser.me/api/portraits/men/2.jpg",
+      "age": "29",
+      "Nationality": "Costa Rica",
+      "percentage": "67%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Married"
+    },
+    {
+      "id": "3",
+      "name": "Daniel",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/6.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/6.jpg",
+      "age": "29",
+      "Nationality": "England",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "4",
+      "name": "Samuel",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/12.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/12.jpg",
+      "age": "29",
+      "Nationality": "Scotland",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "5",
+      "name": "Florence",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/31.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/31.jpg",
+      "age": "24",
+      "Nationality": "Canada",
+      "percentage": "90%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Dating"
+    },
+    {
+      "id": "6",
+      "name": "Thereasa",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/40.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/40.jpg",
+      "age": "29",
+      "Nationality": "France",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Married"
+    },
+    {
+      "id": "7",
+      "name": "Daniella",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/53.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/53.jpg",
+      "age": "59",
+      "Nationality": "USA",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"friendship"
+    },
+    {
+      "id": "8",
+      "name": "Abigail",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/63.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/63.jpg",
+      "age": "29",
+      "Nationality": "",
+      "percentage": "86%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "9",
+      "name": "Frued",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/53.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/53.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Married"
+    },
+    {
+      "id": "10",
+      "name": "Darius",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/73.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/73.jpg",
+      "age": "29",
+      "Nationality": "USA",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "11",
+      "name": "Chen",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/83.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/83.jpg",
+      "age": "29",
+      "Nationality": "South Korea",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "12",
+      "name": "Divine",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/93.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/93.jpg",
+      "age": "29",
+      "Nationality": "New Zealand",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "13",
+      "name": "Emmanuel",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/93.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/93.jpg",
+      "age": "29",
+      "Nationality": "Poland",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "14",
+      "name": "Hannah",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/33.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/33.jpg",
+      "age": "29",
+      "Nationality": "Canada",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Angela",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/61.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/61.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/77.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/77.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/83.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/83.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"Dating"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/67.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/67.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/97.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/97.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":true,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/78.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/78.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Single"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/men/27.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/men/27.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Dating"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/76.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/76.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"Married"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/75.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/75.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/74.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/74.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/73.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/73.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"professional"
+    },
+    {
+      "id": "15",
+      "name": "Nichole",
+      "backgroundImage":
+        "https://randomuser.me/api/portraits/women/71.jpg",
+      "roundedImage":
+        "https://randomuser.me/api/portraits/women/71.jpg",
+      "age": "29",
+      "Nationality": "Nigeria",
+      "percentage": "78%",
+      "verified": true,
+      "description":
+        "An average English person is polite, reserved, and values tradition. They enjoy tea, discuss the weather often, and have a dry sense of humor. Football is a national passion. They can be friendly.",
+      "view_info": false,
+      "favorite": false,
+      "divorced":false,
+      "relationshipType":"Married"
+    }
+    
+  ]

@@ -1,32 +1,9 @@
-"use client";
-
 import React from "react";
-import { useRouter } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons"; // Solid style
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons"; // Verified checkmark
 
-const UserCard = ({user,i,addFavorite}) => {
-  const router = useRouter()
-
-  
-  const handleChatClick = () => {
-    const params = new URLSearchParams({
-      id:user.id,
-      name: user.name,
-      description: user.description,
-    }).toString();
-
-    router.push(`/chat?${params}`);
-  };
-    
-  
-  
+const FavoriteUser = () => {
   return (
-    <div onClick={handleChatClick}
-      className="shadow-lg w-64 card-color flex flex-col items-center rounded-lg mt-2 ml-2"
-    >
-      <div className="card-img-h w-full relative">
+    <div className="shadow-lg block  h-custom w-custom card-color flex flex-col items-center rounded-lg mt-2 ml-2">
+      <div className="card-img-height w-full relative">
         <img
           className="h-full w-full object-cover rounded-t-lg "
           src={user.backgroundImage}
@@ -42,16 +19,16 @@ const UserCard = ({user,i,addFavorite}) => {
         </div>
       </div>
       <div className="flex flex-col px-3">
-        <div className="flex justify-between ">
+        <div className="flex justify-between block">
           {" "}
-          <div className="flex flex-col py-2 ">
+          <div className="flex flex-col py-2">
             <h1 className="text-xs font-bold py-1">
               {user.name},{user.age}
             </h1>
             <h1 className="text-xs font-bold">{user.Nationality}</h1>
           </div>
-          <div className="flex flex-col items-center py-2 ">
-            <h2 className="text-xs font-bold py-1 flex flex-col">{user.percentage}, match</h2>
+          <div className="flex flex-col block items-center py-2 ">
+            <h2 className="text-xs font-bold py-1">{user.percentage}, match</h2>
             {user.verified && (
               <div className="flex space-x-1 items-center">
                 {" "}
@@ -59,14 +36,14 @@ const UserCard = ({user,i,addFavorite}) => {
                   icon={faCircleCheck}
                   className="text-sm px-1 text-blue-500 "
                 />
-                <p className="text-xs font-bold py-1 flex ">Verified address</p>
+                <p className="text-xs font-bold py-1 ">Verified address</p>
               </div>
             )}
           </div>
         </div>
 
-        <p className="text-sm pt-3 pb-3">{user.description }</p>
-        <div className="flex items-center w-full justify-between py-2">
+        <p className="text-xs pt-5 pb-3">{user.description}</p>
+        <div className="flex justify-center items-center w-full justify-between py-3">
           <button
             className={`w-24 h-8 p-2  text-xs text-white rounded-full ${
               user.view_info ? "bg-red-500" : "bg-blue-500"
@@ -88,4 +65,4 @@ const UserCard = ({user,i,addFavorite}) => {
   );
 };
 
-export default UserCard;
+export default FavoriteUser;

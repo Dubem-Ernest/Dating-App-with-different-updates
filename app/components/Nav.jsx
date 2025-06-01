@@ -2,8 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { FaFilter } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
+import { useDispatch, useSelector } from "react-redux";
 
-const Nav = () => {
+const Nav = ({ sidebarOpen, setSidebarOpen }) => {
+  const user = useSelector((state) => state.user);
+
+  function handleSidebar() {
+    setSidebarOpen(!sidebarOpen);
+  }
   return (
     <nav className="flex w-full px-8 h-20 bg-white space-x-12">
       {/* Left Section (Logo) */}
@@ -26,7 +32,7 @@ const Nav = () => {
         </div>
 
         {/* Filter Button */}
-        <button className="flex items-center flex grow py-1 space-x-1 px-3 bg-white text-gray-500 rounded-full border-2 border-gray-400 ">
+        <button className="flex items-center grow py-1 space-x-1 px-3 bg-white text-gray-500 rounded-full border-2 border-gray-400 ">
           <FaFilter />
           <span>Filter</span>
         </button>
@@ -40,13 +46,26 @@ const Nav = () => {
         >
           notifications_active
         </span>
-        <Link href="/profile" className="h-16 w-16 rounded-full object-cover">
+        <Link
+          href="/profile"
+          className="hidden md:flex h-16 w-16 rounded-full object-cover"
+        >
           <img
-            src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-            alt="image"
+            src={user?.roundedImage || "/blank.png"}
+            alt="User Image"
             className="h-full w-16 rounded-full object-cover"
           />
         </Link>
+        <div className="cursor-pointer md:mt-16 block md:hidden text-center">
+          {" "}
+          <span
+            className="material-icons   "
+            style={{ fontSize: "2rem" }}
+            onClick={handleSidebar}
+          >
+            menu
+          </span>
+        </div>
       </div>
     </nav>
   );
