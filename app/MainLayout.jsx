@@ -40,7 +40,7 @@ const MainLayout = ({children}) => {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+  }, []);
 
   // useEffect(() => {
   //   getData();
