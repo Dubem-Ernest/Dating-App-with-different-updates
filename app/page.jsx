@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserCard from "./components/UserCard";
 import { changeFavorite } from "./lib/slices/usersSlice";
@@ -12,22 +12,21 @@ export default function Home() {
   const users = useSelector((state) => state.users.users);
   const user = useSelector((state) => state.user);
   const filterValue = useSelector((state) => state.filter.users);
-  const [filteredUser, setFilteredUser] = useState([]);
+
   const dispatch = useDispatch();
 
   function handleChange(e) {
     dispatch(changeFilter(e.target.value));
   }
 
-  useEffect(() => {
-    if (filterValue === "All") {
-      setFilteredUser(users);
-    } else {
-      setFilteredUser(
-        users.filter((user) => user.relationshipType === filterValue)
-      );
-    }
+  const filteredUser = useMemo(() => {
+    if (filterValue === "All") return users;
+    return users.filter(
+      (user) =>
+        user.relationshipType?.toLowerCase() === filterValue.toLowerCase()
+    );
   }, [users, filterValue]);
+  
 
   const addFavorite = (i) => {
     const updatedUsers = [...users];
@@ -98,8 +97,8 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto pb-4">
           {Array.isArray(filteredUser) && filteredUser.length > 0 ? (
             filteredUser.map((user, i) => (
-              <Suspense>
-                <UserCard key={i} user={user} i={i} addFavorite={addFavorite} />
+              <Suspense key={`${user.id}-${i}`}>
+                <UserCard user={user} i={i} addFavorite={addFavorite} />
               </Suspense>
             ))
           ) : (
