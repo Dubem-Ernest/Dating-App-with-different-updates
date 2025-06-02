@@ -6,6 +6,7 @@ import UserCard from "./components/UserCard";
 import { changeFavorite } from "./lib/slices/usersSlice";
 import { favorite } from "./lib/slices/userSlice";
 import { changeFilter } from "./lib/slices/filterSlice";
+import { Suspense } from "react";
 
 export default function Home() {
   const users = useSelector((state) => state.users.users);
@@ -22,7 +23,9 @@ export default function Home() {
     if (filterValue === "All") {
       setFilteredUser(users);
     } else {
-      setFilteredUser(users.filter((user) => user.relationshipType === filterValue));
+      setFilteredUser(
+        users.filter((user) => user.relationshipType === filterValue)
+      );
     }
   }, [users, filterValue]);
 
@@ -51,12 +54,19 @@ export default function Home() {
             />
           </div>
           <div>
-            <h1 className="text-base md:text-lg font-medium">Welcome, {user.name || "Anonymous"}</h1>
+            <h1 className="text-base md:text-lg font-medium">
+              Welcome, {user.name || "Anonymous"}
+            </h1>
             <div className="mt-2">
-              <p className="text-xs md:text-sm text-gray-600">My profile completeness</p>
+              <p className="text-xs md:text-sm text-gray-600">
+                My profile completeness
+              </p>
               <div className="flex items-center mt-1">
                 <div className="w-40 md:w-64 bg-gray-200 rounded-full h-2">
-                  <div className="bg-red-500 h-2 rounded-full" style={{ width: "60%" }}></div>
+                  <div
+                    className="bg-red-500 h-2 rounded-full"
+                    style={{ width: "60%" }}
+                  ></div>
                 </div>
                 <span className="text-xs pl-2">60%</span>
               </div>
@@ -88,7 +98,9 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto pb-4">
           {Array.isArray(filteredUser) && filteredUser.length > 0 ? (
             filteredUser.map((user, i) => (
-              <UserCard key={i} user={user} i={i} addFavorite={addFavorite} />
+              <Suspense>
+                <UserCard key={i} user={user} i={i} addFavorite={addFavorite} />
+              </Suspense>
             ))
           ) : (
             <p className="text-center col-span-full">Loading users...</p>
