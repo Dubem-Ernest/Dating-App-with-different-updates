@@ -5,24 +5,27 @@
 
 body {
   background: #f5f3f2;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
 
 }
 
 @layer utilities {
 
   /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  body {
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE 10+ */
   }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+  
+  body::-webkit-scrollbar {
+    display: none;               /* Chrome, Safari, Opera */
   }
+  
+  
 }
+
 
 .custom-height {
   height: 42rem;

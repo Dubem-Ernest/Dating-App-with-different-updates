@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { FaFilter } from "react-icons/fa";
@@ -7,65 +9,55 @@ import { useDispatch, useSelector } from "react-redux";
 const Nav = ({ sidebarOpen, setSidebarOpen }) => {
   const user = useSelector((state) => state.user);
 
-  function handleSidebar() {
-    setSidebarOpen(!sidebarOpen);
-  }
+  const handleSidebar = () => setSidebarOpen(!sidebarOpen);
+
   return (
-    <nav className="flex w-full px-8 h-20 bg-white space-x-12">
-      {/* Left Section (Logo) */}
-      <div className="w-1/6 h-full flex items-center text-white px-10 border-r-2 ">
-        <Link href="#" className=" flex items-center ">
-          Logo
+    <nav className="flex items-center w-full h-20 bg-white px-4 md:px-8 shadow-sm">
+      {/* Left Section - Logo */}
+      <div className="w-1/6 h-full flex items-center border-r-2">
+        <Link href="/" className="text-lg md:text-2xl font-bold text-red-500">
+          Finder
         </Link>
       </div>
 
-      {/* Center Section (Search & Filter) */}
-      <div className="flex w-2/5 h-full items-center space-x-4  text-white px-4">
-        {/* Search Input */}
-        <div className="flex h-10 items-center w-1/2 text-black px-3 py-1 rounded-full border-2 border-blue-400">
+      {/* Center Section - Search and Filter */}
+      <div className="flex items-center w-2/5 space-x-4 px-4">
+        {/* Search */}
+        <div className="flex items-center h-10 w-full max-w-xs px-3 border-2 border-blue-400 rounded-full text-black">
           <GoSearch className="text-gray-500" />
           <input
             type="search"
             placeholder="Search..."
-            className="ml-1 text-sm md:text-base bg-transparent px-1 py-3 outline-none border-none w-32 sm:w-48"
+            className="ml-2 bg-transparent text-sm md:text-base outline-none w-full"
           />
         </div>
 
-        {/* Filter Button */}
-        <button className="flex items-center grow py-1 space-x-1 px-3 bg-white text-gray-500 rounded-full border-2 border-gray-400 ">
+        {/* Filter */}
+        <button className="hidden md:flex items-center px-3 py-1 space-x-2 text-gray-500 border-2 border-gray-400 rounded-full">
           <FaFilter />
           <span>Filter</span>
         </button>
       </div>
 
-      {/* Right Section (Image) */}
-      <div className="h-full flex flex-grow items-center w-48 justify-end space-x-8 pr-8">
-        <span
-          className="material-icons text-red-500"
-          style={{ fontSize: "2rem" }}
-        >
+      {/* Right Section - Notification, Profile Image, Menu Icon */}
+      <div className="flex items-center justify-end flex-grow space-x-6 pr-4">
+        <span className="material-icons text-red-500 text-2xl">
           notifications_active
         </span>
-        <Link
-          href="/profile"
-          className="hidden md:flex h-16 w-16 rounded-full object-cover"
-        >
+
+        {/* Profile Image */}
+        <Link href="/profile" className="hidden md:block h-12 w-12 rounded-full overflow-hidden">
           <img
             src={user?.roundedImage || "/blank.png"}
-            alt="User Image"
-            className="h-full w-16 rounded-full object-cover"
+            alt="User"
+            className="w-full h-full object-cover"
           />
         </Link>
-        <div className="cursor-pointer md:mt-16 block md:hidden text-center">
-          {" "}
-          <span
-            className="material-icons   "
-            style={{ fontSize: "2rem" }}
-            onClick={handleSidebar}
-          >
-            menu
-          </span>
-        </div>
+
+        {/* Sidebar Toggle for Mobile */}
+        <button onClick={handleSidebar} className="block md:hidden">
+          <span className="material-icons text-gray-700 text-2xl">menu</span>
+        </button>
       </div>
     </nav>
   );

@@ -221,7 +221,7 @@ const MainLayout = ({children}) => {
         </div>
 
         {/* Dynamic Page Content */}
-        <main className="col-span-3 md:col-span-7 bg-green pr-20 pl-8">{children}</main>
+        <main className="no-scrollbar col-span-3 md:col-span-7 bg-green pr-20 pl-8">{children}</main>
       </div>
     </div>
   );
