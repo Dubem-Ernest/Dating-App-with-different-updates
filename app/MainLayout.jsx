@@ -19,7 +19,7 @@ const MainLayout = ({children}) => {
 
   
 
-  const getData = () => {
+  const getData = useCallback(() => {
     fetch("data.json", {
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const MainLayout = ({children}) => {
         dispatch(getUsers(myJson));
         
       });
-  };
+    }, []);
 
 
 
