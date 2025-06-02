@@ -11,6 +11,8 @@ export default function AiChat({ description, activeUser }) {
   const messagesEndRef = useRef(null);
   const user = useSelector((state) => state.user)
 
+  console.log(user);
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [conversation, loading]);
@@ -83,8 +85,8 @@ export default function AiChat({ description, activeUser }) {
           >
             {msg.role === "assistant" && (
               <img
-                src={activeUser[0].roundedImage}
-                alt={activeUser[0].name}
+                src={activeUser.roundedImage}
+                alt={activeUser.name}
                 className="w-4 h-4  object-cover rounded-full"
               />
             )}
@@ -109,8 +111,8 @@ export default function AiChat({ description, activeUser }) {
 
             {msg.role === "user" && (
               <img
-              src={user?.roundedImage}
-              alt={user?.name}
+              src={user?.roundedImage || null}
+              alt={user?.name || 'Annonymous'}
                 className="w-4 h-4  object-cover rounded-full"
               />
             )}
