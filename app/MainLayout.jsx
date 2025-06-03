@@ -11,6 +11,7 @@ import Nav from "./components/Nav";
 const MainLayout = ({children}) => {
   const dispatch = useDispatch();
   const filterValue = useSelector((state) => state.filter.users)
+  const user = useSelector((state) => state.user)
 
   
   const pathname = usePathname();
@@ -110,7 +111,7 @@ const MainLayout = ({children}) => {
           >
             <div className="pt-10 space-y-2">
               <img
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+                src={user?.roundedImage || "/blank.png"}
                 alt=""
                 className="rounded-full h-24 object-cover w-24 "
               />
